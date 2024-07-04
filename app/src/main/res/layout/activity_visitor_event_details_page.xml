@@ -1,0 +1,346 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".VisitorEventDetailsPage">
+
+    <ImageView
+        android:id="@+id/imageView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="25dp"
+        android:src="@drawable/back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="15dp"
+        android:fontFamily="@font/poppins_semibold"
+        android:gravity="center_vertical"
+        android:text="EVENT TITLE"
+        android:textColor="@color/black1"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView8"
+        app:layout_constraintEnd_toStartOf="@+id/imageView3"
+        app:layout_constraintStart_toEndOf="@+id/imageView8"
+        app:layout_constraintTop_toTopOf="@+id/imageView8" />
+
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginEnd="20dp"
+        app:layout_constraintBottom_toBottomOf="@+id/textView5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textView5"
+        app:srcCompat="@drawable/favourites" />
+
+    <ImageView
+        android:id="@+id/imageView9"
+        android:layout_width="7dp"
+        android:layout_height="7dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="15dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView5"
+        app:srcCompat="@drawable/point" />
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:fontFamily="@font/poppins"
+        android:gravity="center"
+        android:text="Category:"
+        android:textColor="@color/black1"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView9"
+        app:layout_constraintStart_toEndOf="@+id/imageView9"
+        app:layout_constraintTop_toTopOf="@+id/imageView9" />
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:fontFamily="@font/poppins"
+        android:text="Movies"
+        android:textColor="@color/black1"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@+id/textView10"
+        app:layout_constraintStart_toEndOf="@+id/textView10"
+        app:layout_constraintTop_toTopOf="@+id/textView10" />
+
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="5dp"
+        app:layout_constraintStart_toStartOf="@+id/imageView8"
+        app:layout_constraintTop_toBottomOf="@+id/textView11"
+        app:srcCompat="@drawable/goldenstar" />
+
+    <TextView
+        android:id="@+id/edTrating"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:fontFamily="@font/roboto_medium"
+        android:text="4.488"
+        android:textColor="@color/black1"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView6"
+        app:layout_constraintStart_toEndOf="@+id/imageView6"
+        app:layout_constraintTop_toTopOf="@+id/imageView6" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="3dp"
+        android:fontFamily="@font/roboto_medium"
+        android:text="/5"
+        android:textColor="@color/black1"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="@+id/edTrating"
+        app:layout_constraintStart_toEndOf="@+id/edTrating"
+        app:layout_constraintTop_toTopOf="@+id/edTrating" />
+
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/button2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView6">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/textView12"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/poppins_medium"
+                    android:text="About"
+                    android:textColor="@color/black1"
+                    android:textSize="18sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/imageView7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toBottomOf="@+id/tvLocation"
+                    app:layout_constraintStart_toStartOf="@+id/textView12"
+                    app:layout_constraintTop_toTopOf="@+id/tvLocation"
+                    app:srcCompat="@drawable/location" />
+
+                <TextView
+                    android:id="@+id/tvLocation"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="10dp"
+                    android:fontFamily="@font/poppins"
+                    android:text="City, District, State"
+                    android:textColor="#6A6A6A"
+                    android:textSize="12sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/imageView7"
+                    app:layout_constraintTop_toBottomOf="@+id/textView12" />
+
+                <TextView
+                    android:id="@+id/textView4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:fontFamily="@font/roboto"
+                    android:text="4:00 - 5:00 AM"
+                    android:textColor="#6A6A6A"
+                    android:textSize="12sp"
+                    app:layout_constraintStart_toStartOf="@+id/imageView7"
+                    app:layout_constraintTop_toBottomOf="@+id/tvLocation" />
+
+                <ImageView
+                    android:id="@+id/imageView5"
+                    android:layout_width="7dp"
+                    android:layout_height="7dp"
+                    android:layout_marginStart="3dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/textView4"
+                    app:layout_constraintStart_toEndOf="@+id/textView4"
+                    app:layout_constraintTop_toTopOf="@+id/textView4"
+                    app:srcCompat="@drawable/black_point" />
+
+                <TextView
+                    android:id="@+id/textView13"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="3dp"
+                    android:layout_marginEnd="10dp"
+                    android:fontFamily="@font/roboto"
+                    android:text="30/01/2025"
+                    android:textColor="#6A6A6A"
+                    android:textSize="12sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/textView4"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/imageView5"
+                    app:layout_constraintTop_toTopOf="@+id/textView4" />
+
+                <TextView
+                    android:id="@+id/textView14"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="10dp"
+                    android:fontFamily="@font/roboto"
+                    android:text="Nearly 5,000 years after he was bestowed with the almighty powers of the ancient gods and imprisoned just as quickly- Black Adam (johnson) is freed from his earthly tomb, ready to  unleash his unique form of justice on the modern world."
+                    android:textColor="#6A6A6A"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/textView4"
+                    app:layout_constraintTop_toBottomOf="@+id/textView13" />
+
+                <TextView
+                    android:id="@+id/textView15"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/roboto"
+                    android:text="Organizer Details:"
+                    android:textColor="#6A6A6A"
+                    android:textSize="12sp"
+                    app:layout_constraintStart_toStartOf="@+id/textView14"
+                    app:layout_constraintTop_toBottomOf="@+id/textView14" />
+
+                <TextView
+                    android:id="@+id/textView16"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:fontFamily="@font/roboto"
+                    android:text="Organizer Name"
+                    android:textColor="#6A6A6A"
+                    android:textSize="12sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/textView15"
+                    app:layout_constraintStart_toEndOf="@+id/textView15"
+                    app:layout_constraintTop_toTopOf="@+id/textView15" />
+
+                <ImageView
+                    android:id="@+id/imageView11"
+                    android:layout_width="7dp"
+                    android:layout_height="7dp"
+                    android:layout_marginStart="4dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/textView16"
+                    app:layout_constraintStart_toEndOf="@+id/textView16"
+                    app:layout_constraintTop_toTopOf="@+id/textView16"
+                    app:srcCompat="@drawable/black_point" />
+
+                <TextView
+                    android:id="@+id/textView17"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginEnd="10dp"
+                    android:fontFamily="@font/roboto"
+                    android:text="9999999999"
+                    android:textColor="#6A6A6A"
+                    android:textSize="12sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/textView16"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/imageView11"
+                    app:layout_constraintTop_toTopOf="@+id/textView16" />
+
+                <TextView
+                    android:id="@+id/textView18"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:fontFamily="@font/poppins_medium"
+                    android:text="Cast"
+                    android:textColor="@color/black1"
+                    android:textSize="18sp"
+                    app:layout_constraintStart_toStartOf="@+id/textView12"
+                    app:layout_constraintTop_toBottomOf="@+id/textView15" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerView"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="12dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toStartOf="@+id/textView18"
+                    app:layout_constraintTop_toBottomOf="@+id/textView18"
+                    tools:listitem="@layout/cast_list" />
+
+                <TextView
+                    android:id="@+id/textView19"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:fontFamily="@font/poppins_medium"
+                    android:text="Coments"
+                    android:textColor="@color/black1"
+                    android:textSize="18sp"
+                    app:layout_constraintStart_toStartOf="@+id/textView18"
+                    app:layout_constraintTop_toBottomOf="@+id/recyclerView" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="15dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/textView19"
+                    app:layout_constraintTop_toBottomOf="@+id/textView19"
+                    tools:listitem="@layout/comments_list" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:background="@drawable/button"
+        android:layout_marginBottom="15dp"
+        android:text="Edit event details"
+        android:textAllCaps="false"
+        android:textSize="16sp"
+        android:fontFamily="@font/roboto"
+        android:backgroundTint="@color/blue"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

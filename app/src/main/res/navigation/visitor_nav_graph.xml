@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/visitor_nav_graph"
+    app:startDestination="@id/vistorHomeFragment">
+
+    <fragment
+        android:id="@+id/vistorHomeFragment"
+        android:name="com.example.eventmanagementapp.fragments.VisitorHomeFragment"
+        android:label="fragment_vistor_home"
+        tools:layout="@layout/fragment_visitor_home" />
+    <fragment
+        android:id="@+id/visitorSearchFragment"
+        android:name="com.example.eventmanagementapp.fragments.VisitorSearchFragment"
+        android:label="fragment_visitor_search"
+        tools:layout="@layout/fragment_visitor_search" />
+    <fragment
+        android:id="@+id/visitorFavFragment"
+        android:name="com.example.eventmanagementapp.fragments.VisitorFavFragment"
+        android:label="fragment_visitor_fav"
+        tools:layout="@layout/fragment_visitor_fav" />
+    <fragment
+        android:id="@+id/visitorAcFragment"
+        android:name="com.example.eventmanagementapp.fragments.VisitorAcFragment"
+        android:label="fragment_visitor_ac"
+        tools:layout="@layout/fragment_visitor_ac" />
+</navigation>
