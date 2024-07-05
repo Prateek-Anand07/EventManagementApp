@@ -2,23 +2,24 @@ package com.example.eventmanagementapp
 
 import android.content.Intent
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.eventmanagementapp.databinding.ActivityLoginPageBinding
-import com.google.firebase.Firebase
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.auth
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.database.ktx.database
+import com.google.firebase.ktx.Firebase
 
 class LoginPage : AppCompatActivity() {
     private lateinit var binding: ActivityLoginPageBinding
     private lateinit var auth: FirebaseAuth
+    private val database = Firebase.database
+
     public override fun onStart() {
         super.onStart()
-        // Check if user is signed in (non-null) and update UI accordingly.
         val currentUser = auth.currentUser
         if (currentUser != null) {
             val sharedPref = getSharedPreferences("userPref", MODE_PRIVATE)
@@ -28,7 +29,6 @@ class LoginPage : AppCompatActivity() {
             } else if (userRole == "Visitor") {
                 startActivity(Intent(this, VisitorHomePage::class.java))
             } else {
-                // Handle case where role is not set or some error occurred
                 Toast.makeText(this, "Role not set. Please Sign in again.", Toast.LENGTH_SHORT).show()
                 startActivity(Intent(this, LoginPage::class.java))
             }
@@ -61,24 +61,27 @@ class LoginPage : AppCompatActivity() {
                 auth.signInWithEmailAndPassword(email, password)
                     .addOnCompleteListener(this) { task ->
                         if (task.isSuccessful) {
-                            val sharedPref = getSharedPreferences("userPref", MODE_PRIVATE)
-                            val editor = sharedPref.edit()
-                            if(binding.radioOrganizer.isChecked) {
-                                editor.putString("userRole", "Organizer")
-                                editor.apply()
-                                Toast.makeText(this, "Sign in successful as Organizer", Toast.LENGTH_SHORT).show()
-                                startActivity(Intent(this, OrganizerHomePage::class.java))
+                            val user = auth.currentUser
+                            if (user != null) {
+                                val uid = user.uid
+                                val role: String
+                                val userData = mutableMapOf<String, Any>()
+                                if (binding.radioOrganizer.isChecked) {
+                                    role = "Organizer"
+                                    userData["role"] = role
+                                    saveUserData(uid, role, userData)
+                                    Toast.makeText(this, "Sign in successful as Organizer", Toast.LENGTH_SHORT).show()
+                                    startActivity(Intent(this, OrganizerHomePage::class.java))
+                                } else if (binding.radioVisitor.isChecked) {
+                                    role = "Visitor"
+                                    userData["role"] = role
+                                    saveUserData(uid, role, userData)
+                                    Toast.makeText(this, "Sign in successful as Visitor", Toast.LENGTH_SHORT).show()
+                                    startActivity(Intent(this, VisitorHomePage::class.java))
+                                } else {
+                                    Toast.makeText(this, "Please select your role as Organizer or Visitor", Toast.LENGTH_LONG).show()
+                                }
                                 finish()
-                            }
-                            else if(binding.radioVisitor.isChecked) {
-                                editor.putString("userRole", "Visitor")
-                                editor.apply()
-                                Toast.makeText(this, "Sign in successful as Visitor", Toast.LENGTH_SHORT).show()
-                                startActivity(Intent(this, VisitorHomePage::class.java))
-                                finish()
-                            }
-                            else {
-                                Toast.makeText(this, "Please select your position as Organizer or Visitor", Toast.LENGTH_LONG).show()
                             }
                         } else {
                             Toast.makeText(this, "Sign in failed: ${task.exception?.message}", Toast.LENGTH_LONG).show()
@@ -86,5 +89,21 @@ class LoginPage : AppCompatActivity() {
                     }
             }
         }
+    }
+
+    private fun saveUserData(uid: String, userType: String, userData: Map<String, Any>) {
+        val userRef = database.getReference("users/$uid/userType/$userType")
+        userRef.setValue(userData)
+            .addOnSuccessListener {
+                // Data saved successfully
+                val sharedPref = getSharedPreferences("userPref", MODE_PRIVATE)
+                val editor = sharedPref.edit()
+                editor.putString("userRole", userType)
+                editor.apply()
+            }
+            .addOnFailureListener { exception ->
+                // Handle error
+                Toast.makeText(this, "Error saving data: ${exception.message}", Toast.LENGTH_LONG).show()
+            }
     }
 }
